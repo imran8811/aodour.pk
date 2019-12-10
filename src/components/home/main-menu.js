@@ -3,18 +3,13 @@ import axios from 'axios';
 
 function MainMenu(){
     const [mainMenu, setMainMenu] = useState([]);
-    console.log("here1");
     
     useEffect(() => {
         axios.get('https://backoffice.aodour.tk/api/menu').then((res) => {
             setMainMenu(res.data.data);
         });
-        console.log("here2");
     }, []);
-
-    console.log(mainMenu);
-    console.log("here3");
-    
+    // console.log(mainMenu);
     return(
         <nav id="header-sticky" className="navbar navbar-inverse main-menu">
             <div className="toggle-section">
