@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 
 function Footer(props){
     return(
-        <Fragmemt>
+        <Fragment>
         <footer className="page-footer row">
             <div className="col-md-4 newletter">
               <h5>Signup TO Our Newslatters</h5>
@@ -66,7 +66,7 @@ function Footer(props){
                 </ul>
            </div>
         </div>
-        </Fragmemt>
+        </Fragment>
     )
 }
 export default Footer;

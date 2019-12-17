@@ -1,6 +1,6 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import Axios from 'axios';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Header from './header'
@@ -12,6 +12,7 @@ import TopSellerBanners from './top-seller-banners';
 import TopBrandSlider from './brand-slider';
 import SectionBanners from './section-banners';
 import InstaFeed from './instagram-feed';
+import Footer from "./footer";
 
 function Home() {
   const baseUrl = 'https://backoffice.aodour.tk/';
@@ -22,7 +23,8 @@ function Home() {
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [topSellerBanners, setTopSellerBanners] = useState([]);
   const [sectionBanners, setSectionBanners] = useState([]);
-    
+    let { path } = useRouteMatch();
+    console.log(path);
   useEffect(() => {
       Axios.get('https://backoffice.aodour.tk/api/landing').then(function(res){
           setMainSlider(res.data.data.sliders);
@@ -172,7 +174,7 @@ function Home() {
                 </ul>
             </div>
         </div>
-        
+        <Footer />
     </Fragment>
   );
 }
